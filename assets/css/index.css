@@ -52,12 +52,15 @@ select {
   cursor: pointer;
 }
 
-main {
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 60px;
-  position: relative;
+  padding: 40px 20px;
 }
 
 .left-content {
@@ -93,8 +96,7 @@ main {
   color: black;
   padding: 30px;
   border-radius: 16px;
-  top: 20px;
-  right: 30px;
+  right: -140px;
   width: 320px;
   position: absolute;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
