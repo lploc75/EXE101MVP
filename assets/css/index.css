@@ -6,12 +6,24 @@
 }
 
 body {
-  background: #00aace;
   color: #fff;
   min-height: 100vh;
-  background-image: url(../images/rm222batch2-mind-03.jpg); /* ảnh bóng bay */
-  background-size: cover;
-  background-position: center;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 85%;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.8;
+  /* Nếu muốn nhạt đi thì chỉnh nhỏ lại, ví dụ 0.7 */
+  background: #00aace;
+  /* Fallback nếu video không load */
 }
 
 header {
@@ -19,7 +31,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 5px 40px;
-  background: white;
+  background: rgb(255, 255, 255);
   color: black;
 }
 
@@ -27,6 +39,7 @@ header {
   font-size: 24px;
   font-weight: bold;
 }
+
 .logo-img {
   height: 40px;
   object-fit: contain;
@@ -62,8 +75,10 @@ main {
 
 .left-content {
   max-width: 500px;
-  text-align: center; /* thêm dòng này để căn giữa chữ */
-  margin: 0 auto; /* nếu cần đẩy ra giữa container */
+  text-align: center;
+  /* thêm dòng này để căn giữa chữ */
+  margin: 0 auto;
+  /* nếu cần đẩy ra giữa container */
 }
 
 .left-content h1 {

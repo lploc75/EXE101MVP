@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Criticore - Travel with us</title>
-    <link rel="stylesheet" href="../assets/css/index.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <img
-          src="../assets/images/Logo1-Criticore.png"
-          alt="Criticore Logo"
-          class="logo-img"
-        />
-      </div>
-      <div class="header-right">
-        <div style="display: flex; align-items: center; gap: 8px">
-          <img id="flag" src="https://flagcdn.com/w40/us.png" width="24" />
-          <select id="language-select" onchange="updateFlag(this.value)">
-            <option value="us">English (United States)</option>
-            <option value="vn">Tiếng Việt</option>
-          </select>
-        </div>
-        <a href="sign-up.html">
-          <button class="header-signup">Sign up</button>
-        </a>
-      </div>
-    </header>
 
-    <main>
-      <div class="left-content">
-        <h1>Unlock Your Critical Thinking Power</h1>
-        <p>
-          Develop essential critical thinking skills through guided practice,
-          real-world examples, and engaging challenges. Perfect for students,
-          educators, and lifelong learners.
-        </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criticore - Travel with us</title>
+  <link rel="stylesheet" href="../assets/css/index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
 
-        <a href="sign-up.html">
-          <button class="main-signup">Sign up</button>
-        </a>
-      </div>
-      <div class="signup-box">
-        <button class="close-btn" onclick="closeSignup()">✕</button>
-        <h2>Sign up for free</h2>
-        <p>Full access to any of our products</p>
-        <input type="email" placeholder="Enter your email address" />
-        <button class="continue-btn">Continue</button>
-        <div class="or">OR</div>
-        <button class="google-btn">
-          <img
-            src="https://www.svgrepo.com/show/475656/google-color.svg"
-            alt="Google"
-            width="20"
-          />
-          Continue with Google
-        </button>
-      </div>
-    </main>
+<body>
+  <video autoplay loop muted playsinline id="bg-video">
+    <source src="../assets/Animation/original-019e4664f37d52f68c1fedc61892d3a8.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-    <script src="../assets/js/index.js"></script>
-  </body>
+  <header>
+    <div class="logo">
+      <img src="../assets/images/Logo1-Criticore.png" alt="Criticore Logo" class="logo-img" />
+    </div>
+    <div class="header-right">
+      <div style="display: flex; align-items: center; gap: 8px">
+        <img id="flag" src="https://flagcdn.com/w40/us.png" width="24" />
+        <select id="language-select" onchange="updateFlag(this.value)">
+          <option value="us">English (United States)</option>
+          <option value="vn">Tiếng Việt</option>
+        </select>
+      </div>
+      <a href="sign-up.html">
+        <button class="header-signup">Sign up</button>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="left-content">
+      <h1>Unlock Your Critical Thinking Power</h1>
+      <p>
+        Develop essential critical thinking skills through guided practice,
+        real-world examples, and engaging challenges. Perfect for students,
+        educators, and lifelong learners.
+      </p>
+
+      <a href="sign-up.html">
+        <button class="main-signup">Sign up</button>
+      </a>
+    </div>
+    <div class="signup-box">
+      <button class="close-btn" onclick="closeSignup()">✕</button>
+      <h2>Sign up for free</h2>
+      <p>Full access to any of our products</p>
+      <input type="email" placeholder="Enter your email address" />
+      <button class="continue-btn">Continue</button>
+      <div class="or">OR</div>
+      <button class="google-btn">
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" width="20" />
+        Continue with Google
+      </button>
+    </div>
+  </main>
+
+  <script src="../assets/js/index.js"></script>
+</body>
+
 </html>
