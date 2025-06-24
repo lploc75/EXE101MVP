@@ -90,10 +90,11 @@ h1 {
 }
 
 .password-wrapper input {
-  width: 85%; /* 🟢 Đảm bảo input bên trong cũng full */
+  width: 100%; /* 🟢 Đảm bảo input bên trong cũng full */
   font-size: 14px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  padding: 12px 40px 12px 12px;
 }
 
 
