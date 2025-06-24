@@ -10,6 +10,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/GLTFLoader.js"></script>
+
   </head>
   <body>
     <header>
@@ -36,6 +39,7 @@
 
    <main>
   <div class="container">
+  
     <div class="left-content">
       <h1>Unlock Your Critical Thinking Power</h1>
       <p>
@@ -66,6 +70,8 @@
       </button>
     </div>
   </div>
+  <!-- Nên đặt sau phần container -->
+<div id="model-container" style="width: 600px; height: 400px; margin: 40px auto;"></div>
 </main>
 
     <script src="assets/js/index.js"></script>
