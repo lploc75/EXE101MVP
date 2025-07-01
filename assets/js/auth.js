@@ -28,9 +28,11 @@ window.onload = function () {
 
 function handleCredentialResponse(response) {
   const user = parseJwt(response.credential);
-  window.location.href = "home-page.html";;
-  // window.location.href = "dashboard.html";
+  // Lưu thông tin user vào localStorage
+  localStorage.setItem('user', JSON.stringify(user));
+  window.location.href = "home-page.html";
 }
+
 
 function parseJwt(token) {
   var base64Url = token.split('.')[1];
