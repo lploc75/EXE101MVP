@@ -14,3 +14,4 @@ window.logoutAccount = function () {
     alert('Đã đăng xuất!');
     // location.href = 'login.html';
 }
+// Giả lập load thông tin người dùng
