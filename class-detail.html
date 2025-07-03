@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết lớp học</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 p-6">
+    <div class="max-w-3xl mx-auto">
+        <a href="class-list.html" class="text-blue-600 mb-2 inline-block">&larr; Quay lại danh sách lớp</a>
+        <h1 id="className" class="text-2xl font-bold mb-3"></h1>
+        <div id="classInfo" class="mb-6"></div>
+
+        <!-- Form tạo topic -->
+        <div class="bg-white p-4 rounded shadow mb-4">
+            <h2 class="text-lg font-semibold mb-2">Tạo câu hỏi/thảo luận mới</h2>
+            <input id="topicTitle" type="text" placeholder="Tiêu đề" class="w-full mb-2 border rounded p-2" />
+            <textarea id="topicDesc" placeholder="Mô tả ngắn..." class="w-full mb-2 border rounded p-2"></textarea>
+            <button id="addTopicBtn" class="bg-blue-600 text-white px-4 py-2 rounded">Tạo topic</button>
+        </div>
+
+        <!-- Danh sách topic -->
+        <div id="topicsList"></div>
+    </div>
+    <script src="/assets/js/class-detail.js"></script>
+</body>
+
+</html>
