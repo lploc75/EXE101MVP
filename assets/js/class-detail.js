@@ -23,7 +23,7 @@ function renderTopics() {
   const topicsList = document.getElementById("topicsList");
   if (!cls.topics || cls.topics.length === 0) {
     topicsList.innerHTML =
-      "<div class='text-gray-500'>Chưa có topic nào.</div>";
+      "<div class='text-gray-500'>There are no topics yet.</div>";
     return;
   }
   topicsList.innerHTML = cls.topics
