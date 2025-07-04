@@ -16,9 +16,9 @@
       filtered.forEach((cls) => {
         const card = document.createElement("div");
         card.innerHTML = `
-          <div class="relative bg-white rounded-lg shadow p-5 h-full flex flex-col justify-between">
-            <div class="absolute top-3 right-3 bg-black text-white text-xs px-2 py-1 rounded-full">${cls.status}</div>
-            
+           <div class="relative bg-gradient-to-r from-white to-blue-100 border border-blue-200 rounded-lg shadow p-5 h-full flex flex-col justify-between transition hover:shadow-lg">
+      <div class="absolute top-3 right-3 bg-blue-600 text-white text-xs px-2 py-1 rounded-full">${cls.status}</div>
+
             <!-- Tiêu đề và Class ID -->
             <div class="mb-3">
               <h2 class="text-lg font-semibold text-gray-900">${cls.name}</h2>
@@ -46,11 +46,11 @@
                 ${cls.semester}
               </li>
             </ul>
-
-            <div class="mt-4 flex justify-between items-center">
-              <span class="text-xs text-gray-500">${cls.slots} slots available</span>
-              <button onclick="goToClass('${cls.class_id}')" class="bg-black text-white px-4 py-2 rounded-md text-sm hover:bg-gray-800">Join Class</button>
-            </div>
+<!-- Nút Join -->
+      <div class="mt-4 flex justify-between items-center">
+        <span class="text-xs text-black-500">${cls.slots} slots available</span>
+        <button onclick="goToClass('${cls.class_id}')" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition">Join Class</button>
+      </div>
           </div>
         `;
         container.appendChild(card);
