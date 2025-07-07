@@ -30,7 +30,7 @@ function handleCredentialResponse(response) {
   const user = parseJwt(response.credential);
   // Lưu thông tin user vào localStorage
   localStorage.setItem('user', JSON.stringify(user));
-  window.location.href = "home-page.html";
+  window.location.href = "class-list.html";
 }
 
 
