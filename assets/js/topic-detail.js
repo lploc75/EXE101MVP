@@ -137,10 +137,3 @@ userInput.addEventListener('keydown', function (e) {
     }
 });
 
-// ========== API mẫu ==========
-async function callGroqAPI(prompt) {
-    // Thay bằng gọi API thật nếu bạn đã kết nối AI
-    return new Promise(resolve => setTimeout(() => {
-        resolve("Đây là trả lời mẫu từ AI cho: " + prompt);
-    }, 1000));
-}
