@@ -263,3 +263,16 @@ userInput.addEventListener("keydown", function (e) {
     e.preventDefault();
   }
 });
+  const textarea = document.getElementById("answerContent");
+  const answerBar = document.getElementById("answerBar");
+
+  textarea.addEventListener("focus", () => {
+    answerBar.classList.add("fullscreen-answer");
+  });
+
+  textarea.addEventListener("blur", () => {
+    // Delay để tránh mất khi click nút Gửi
+    setTimeout(() => {
+      answerBar.classList.remove("fullscreen-answer");
+    }, 200);
+  });
