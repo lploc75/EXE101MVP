@@ -1,5 +1,6 @@
 // ================= Q&A Topic Detail ================
-let classes = JSON.parse(localStorage.getItem('classes') || '[]');
+let classes = JSON.parse(localStorage.getItem('classes') || '[]'); // lấy thông tin lớp học từ localStorage
+const googleUser = JSON.parse(localStorage.getItem('user') || '{}'); // lấy thông tin người dùng từ localStorage
 const params = new URLSearchParams(window.location.search);
 const classId = params.get("class_id");
 const topicId = params.get("topic_id");
@@ -34,47 +35,59 @@ document.getElementById("promptBlock").innerHTML = `
   </div>
 `;
 
-// Hàm render danh sách trả lời
+// Hàm render câu trả lời, thêm avatar
 function renderAnswers() {
   const box = document.getElementById("answersList");
-  if (!topic.answers || topic.answers.length === 0) {
+  if (!topic.answers || !topic.answers.length) {
     box.innerHTML = `<div class="text-gray-500">Chưa có câu trả lời nào.</div>`;
     return;
   }
+
   box.innerHTML = topic.answers.map(a => `
     <div class="bg-white p-4 rounded-xl shadow hover:shadow-md transition border">
       <div class="flex items-center gap-3 mb-3">
-        <div class="w-9 h-9 bg-gray-300 rounded-full"></div>
+        <img src="${a.picture}" alt="avatar" class="w-9 h-9 rounded-full object-cover"/>
         <div>
           <div class="font-semibold">${a.created_by}</div>
           <div class="text-xs text-gray-500">${a.created_at}</div>
         </div>
       </div>
-      <div class="text-sm text-gray-700 line-clamp-4">${a.content}</div>
+      <div class="text-sm text-gray-700">${a.content}</div>
       <div class="mt-3 text-sm text-gray-500">❤️ ${a.likes||0}</div>
     </div>
   `).join('');
 }
+
 renderAnswers();
 
 // Sự kiện gửi trả lời
 document.getElementById('submitAnswer').onclick = sendAnswer;
 
+// Khi người dùng gửi trả lời
 function sendAnswer() {
-    const textarea = document.getElementById('answerContent');
-    const content = textarea.value.trim();
-    if (!content) { alert('Nhập nội dung trả lời'); return; }
-    topic.answers = topic.answers || [];
-    topic.answers.unshift({
-        answer_id: "A" + (topic.answers.length + 1),
-        content,
-        created_by: "Nguyen Van A",
-        created_at: new Date().toLocaleString()
-    });
-    localStorage.setItem('classes', JSON.stringify(classes));
-    textarea.value = '';
-    textarea.style.height = 'auto';
-    renderAnswers();
+  const ta = document.getElementById('answerContent');
+  const content = ta.value.trim();
+  if (!content) return alert('Nhập nội dung trả lời');
+
+  // Build object answer mới
+  const newAnswer = {
+    answer_id: "A" + ((topic.answers||[]).length + 1),
+    content,
+    created_by: googleUser.name || "Bạn",
+    created_at: new Date().toLocaleString(),
+    likes: 0,
+    picture: googleUser.picture || 'https://via.placeholder.com/40' 
+  };
+
+  // Thêm vào đầu mảng và lưu lại
+  topic.answers = topic.answers || [];
+  topic.answers.unshift(newAnswer);
+  localStorage.setItem('classes', JSON.stringify(classes));
+
+  // Reset textarea và re-render
+  ta.value = '';
+  ta.style.height = 'auto';
+  renderAnswers();
 }
 
 // Tự động giãn textarea trả lời
