@@ -15,24 +15,45 @@ if (!topic) {
     throw "Topic not found";
 }
 
+// Hiển thị header và prompt
 document.getElementById("topicInfo").innerHTML = `
-  <div class="text-xl font-bold text-blue-800 mb-1">${topic.title}</div>
-  <div class="text-gray-700 mb-2">${topic.description}</div>
-  <div class="text-sm text-gray-500 mb-1">Tạo bởi: ${topic.created_by} | ${topic.created_at}</div>
+  <a href="javascript:history.back()" class="text-blue-600 text-sm">&larr; Back to class list</a>
+  <h1 class="text-3xl font-bold mt-2 mb-2">${topic.title}</h1>
+  <div class="flex items-center gap-2 text-sm text-gray-600">
+    <span class="bg-gray-200 px-2 py-0.5 rounded-full text-xs font-semibold">${topic.role || 'Teacher'}</span>
+    <span>${topic.created_by}</span>
+    <span>&bull;</span>
+    <span>${topic.created_at}</span>
+  </div>
+`;
+document.getElementById("promptBlock").innerHTML = `
+  <p class="text-gray-800 mb-4">${topic.description}</p>
+  <div class="flex items-center gap-6 text-sm text-gray-500">
+    <div>❤️ ${topic.likes || 0}</div>
+    <div>💬 ${topic.replies || (topic.answers||[]).length} replies</div>
+  </div>
 `;
 
+// Hàm render danh sách trả lời
 function renderAnswers() {
-    const box = document.getElementById("answersList");
-    if (!topic.answers || topic.answers.length === 0) {
-        box.innerHTML = `<div class="text-gray-500">Chưa có câu trả lời nào.</div>`;
-        return;
-    }
-    box.innerHTML = topic.answers.map(a => `
-        <div class="bg-white p-3 rounded shadow mb-3">
-          <div class="text-base">${a.content}</div>
-          <div class="text-xs text-gray-500 mt-1">Bởi: ${a.created_by} | ${a.created_at}</div>
+  const box = document.getElementById("answersList");
+  if (!topic.answers || topic.answers.length === 0) {
+    box.innerHTML = `<div class="text-gray-500">Chưa có câu trả lời nào.</div>`;
+    return;
+  }
+  box.innerHTML = topic.answers.map(a => `
+    <div class="bg-white p-4 rounded-xl shadow hover:shadow-md transition border">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-9 h-9 bg-gray-300 rounded-full"></div>
+        <div>
+          <div class="font-semibold">${a.created_by}</div>
+          <div class="text-xs text-gray-500">${a.created_at}</div>
         </div>
-    `).join('');
+      </div>
+      <div class="text-sm text-gray-700 line-clamp-4">${a.content}</div>
+      <div class="mt-3 text-sm text-gray-500">❤️ ${a.likes||0}</div>
+    </div>
+  `).join('');
 }
 renderAnswers();
 
